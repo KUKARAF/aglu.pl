@@ -20,7 +20,7 @@ job "aglu.pl" {
       driver = "podman"
 
       config {
-        image = "nginx-static:latest"
+        image = "ghcr.io/kukaraf/aglu.pl:latest"
         ports = ["http"]
       }
 
