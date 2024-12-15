@@ -1,0 +1,68 @@
+.ela_selfie {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+#left_container {
+    background-color: rgba(255, 255, 255, 0.5)
+}
+
+.socials {
+    font-size: xx-large;
+    color: white !important
+}
+
+.main_container {
+    background-image: url("../images/aglu.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1000px) {
+    .main_container {
+        background-image: url("../images/aglu_narrow.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h5 { font-size: 1em; }
+    p { font-size: 0.5em; }
+    body { font-size: 2.5em; }
+}
+
+.animate-flicker {
+    -webkit-animation: flickerAnimation 4s infinite;
+    -moz-animation: flickerAnimation 4s infinite;
+    -o-animation: flickerAnimation 4s infinite;
+    animation: flickerAnimation 4s infinite;
+    text-decoration-line: none;
+    color: black;
+}
+
+.animate-flicker:hover {
+    color: black;
+    font-weight: bold;
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0.5; }
+    100% { opacity:1; }
+}
+
+@-o-keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
