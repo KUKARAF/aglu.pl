@@ -1,5 +1,5 @@
 job "aglu.pl" {
-  datacenters = ["dc1"]
+  datacenters = ["rock", "vultr", "mac", "surface"]
   type = "service"
 
   group "podman" {
