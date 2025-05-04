@@ -1,5 +1,5 @@
 job "aglu.pl" {
-  datacenters = ["rock", "vultr", "mac", "surface"]
+  datacenters = ["rock", "vultr", "mac", "surface", "bigboy"]
   type = "service"
 
   group "podman" {
@@ -17,7 +17,7 @@ job "aglu.pl" {
     }
 
     task "nginx" {
-      driver = "podman"
+      driver = "docker"
 
       config {
         image = "ghcr.io/kukaraf/aglu.pl:latest"
