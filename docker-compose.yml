@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
-  aglu.pl:
-    build: ghcr.io/kukaraf/aglu.pl:latest
+  aglu:
+    image: ghcr.io/kukaraf/aglu.pl:latest
     ports:
       - "8987:8987"
     container_name: aglu-web
