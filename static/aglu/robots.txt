@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://aglu.pl/sitemap.xml
