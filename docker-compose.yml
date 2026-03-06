@@ -1,7 +1,0 @@
-services:
-  aglu:
-    image: ghcr.io/kukaraf/aglu.pl:latest
-    ports:
-      - "8987:8987"
-    container_name: aglu-web
-    restart: unless-stopped
