@@ -9,6 +9,8 @@
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     --radius: 28px;
+    --ctl-h: 3.4rem;
+    --ctl-w: 9.75rem;
 }
 
 * { box-sizing: border-box; }
@@ -52,7 +54,8 @@ h1, h2, h3 {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.85rem 1.7rem;
+    height: var(--ctl-h);
+    padding: 0 1.7rem;
     border-radius: 999px;
     background: var(--ink);
     color: #fff;
@@ -99,6 +102,7 @@ h1, h2, h3 {
 
 .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.hero-links .btn { width: var(--ctl-w); justify-content: center; padding: 0 0.5rem; }
 
 .hero-photo {
     position: relative;
@@ -220,6 +224,7 @@ h1, h2, h3 {
 }
 
 .split {
+    height: var(--ctl-h);
     display: inline-flex;
     align-items: stretch;
     border-radius: 999px;
@@ -236,7 +241,9 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     gap: 0.55rem;
-    padding: 0.85rem 1.4rem;
+    width: var(--ctl-w);
+    justify-content: center;
+    padding: 0 0.5rem;
     color: #fff;
     text-decoration: none;
     border-left: 1px solid rgba(255, 255, 255, 0.22);
@@ -257,7 +264,8 @@ h1, h2, h3 {
     .split .zl-word { display: none; }
     .split .zl-star { display: block; }
     .split i { font-size: 1.3rem; }
-    .split a { flex: 1; justify-content: center; padding: 0.75rem 0.9rem; }
+    :root { --ctl-h: 3rem; --ctl-w: 3.4rem; }
+    .split a { padding: 0; }
     .hero-actions, .hero-links { gap: 0.5rem; }
 }
 
@@ -305,5 +313,5 @@ h1, h2, h3 {
 }
 
 @media (max-width: 480px) {
-    .hero-links .btn { padding: 0.75rem 0.85rem; font-size: 0.9rem; }
+    .hero-links .btn { width: 5rem; padding: 0; font-size: 0.9rem; }
 }
