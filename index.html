@@ -21,8 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link rel="shortcut icon" type="image/png" href="//platform.docplanner.com/img/general/icons/favicon.png?2370760445"/>
-  <link rel="apple-touch-icon" type="image/png" href="//platform.docplanner.com/img/general/icons/favicon.png?2370760445"/>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 
   <meta charset="utf-8">
@@ -49,6 +50,7 @@
     "image": "https://aglu.pl/images/portrait.jpg"
   }
   </script>
+  <script defer src="js/consent.js"></script>
   <script defer src="https://analytics.osmosis.page/script.js" data-website-id="c70a5516-5605-4912-9869-0fddc7eda186"></script>
 </head>
 <body>
@@ -65,7 +67,7 @@
           <div class="cta-group">
           <span class="cta-caption">Umów wizytę</span>
           <div class="split" role="group" aria-label="Umów wizytę">
-          <a class="split-zl" href="https://www.znanylekarz.pl/elzbieta-moczydlowska/psycholog/olsztyn" aria-label="ZnanyLekarz"><img class="zl-word" src="images/zl-logo.svg" alt="ZnanyLekarz" width="111" height="16"><img class="zl-star" src="images/zl-star.svg" alt="" width="19" height="18"></a>
+          <a class="split-cal" href="https://calendar.app.google/qendssAS28dVdtgW9" target="_blank" rel="noopener" aria-label="Kalendarz Google"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Kalendarz</span></a>
           <a class="split-wa" aria-label="WhatsApp" href="https://wa.me/48601557018?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
           <a class="split-call" href="tel:+48601557018" aria-label="Zadzwoń: 601 557 018"><i class="fas fa-phone" aria-hidden="true"></i><span>Zadzwoń</span></a>
         </div>
@@ -111,10 +113,18 @@
     <div class="wrap">
       <div>
         <h2>Umów wizytę</h2>
-        <p>Wybierz dogodny termin w kalendarzu ZnanyLekarz.</p>
+        <p>Wybierz dogodny termin w kalendarzu Google.</p>
       </div>
       <div class="widget">
-        <a id="zl-url" class="zl-url" href="https://www.znanylekarz.pl/elzbieta-moczydlowska/psycholog/olsztyn" rel="nofollow" data-zlw-doctor="elzbieta-moczydlowska" data-zlw-type="big" data-zlw-opinion="false" data-zlw-hide-branding="true">Elżbieta Moczydłowska - ZnanyLekarz.pl</a><script>!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");</script>
+        <div class="embed-ph" data-embed-ph="calendar">
+          <p>Kalendarz Google zapisuje cookies, dlatego ładuje się dopiero po Twojej zgodzie.</p>
+          <div class="embed-ph-actions">
+            <button type="button" class="btn btn-small embed-load">Załaduj kalendarz Google</button>
+            <a class="btn btn-small btn-ghost" href="https://calendar.app.google/qendssAS28dVdtgW9" target="_blank" rel="noopener">Umów wizytę w kalendarzu Google</a>
+          </div>
+        </div>
+        <iframe title="Kalendarz umawiania wizyt" data-embed="calendar" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3E68rf32cXNl4Pc-ZxNGLGJA2hCxxtRXYvUR3IH5VI8VRTCDZTIWpJ4MyyYJgz9MygKWdJkYLj?gv=true" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
+        <a class="widget-open" href="https://calendar.app.google/qendssAS28dVdtgW9" target="_blank" rel="noopener">Otwórz w nowej karcie</a>
       </div>
     </div>
   </section>
@@ -125,16 +135,29 @@
     <h2>Kontakt</h2>
     <p class="sub">Napisz lub zadzwoń, odpowiem tak szybko, jak to możliwe.</p>
     <div class="contact-grid">
-      <a class="contact-card" href="https://www.znanylekarz.pl/elzbieta-moczydlowska/psycholog/olsztyn"><i class="fa-solid fa-calendar" aria-hidden="true"></i><small>Rezerwacja</small>ZnanyLekarz</a>
+      <a class="contact-card" href="https://calendar.app.google/qendssAS28dVdtgW9" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><small>Rezerwacja</small>Kalendarz Google</a>
       <a class="contact-card" href="tel:+48601557018"><i class="fas fa-phone" aria-hidden="true"></i><small>Telefon</small>601 557 018</a>
       <a class="contact-card" href="mailto:edebowskamoczydlowska@gmail.com"><i class="fas fa-at" aria-hidden="true"></i><small>E-mail</small><span class="email">edebowskamoczydlowska<wbr>@gmail.com</span></a>
       <a class="contact-card" href="https://www.facebook.com/aglupsycholog/"><i class="fab fa-facebook" aria-hidden="true"></i><small>Facebook</small>aglupsycholog</a>
     </div>
+    <h3 class="other-title">Inne serwisy</h3>
+    <div class="contact-grid other-grid">
+      <a class="contact-card" href="https://www.znanylekarz.pl/elzbieta-moczydlowska/psycholog/olsztyn"><i class="fa-solid fa-calendar" aria-hidden="true"></i><small>Profil i opinie</small>ZnanyLekarz</a>
+      <a class="contact-card" href="https://twojpsycholog.pl/profil-psychologa/elzbieta-moczydlowska-11511" target="_blank" rel="noopener"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i><small>Profil psychologa</small>TwójPsycholog.pl</a>
+    </div>
     <div class="map">
-      <iframe title="Mapa dojazdu, gabinet Elżbiety Moczydłowskiej w Olsztynie" src="https://maps.google.com/maps?q=53.7796968,20.4857146&amp;z=16&amp;hl=pl&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="embed-ph embed-ph-dark" data-embed-ph="map">
+        <p>Mapa Google zapisuje cookies, dlatego ładuje się dopiero po Twojej zgodzie.</p>
+        <div class="embed-ph-actions">
+          <button type="button" class="btn btn-small btn-light embed-load">Załaduj mapę</button>
+          <a class="btn btn-small btn-outline-light" href="https://maps.app.goo.gl/sUS213Xj2u6TGxyx6" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Otwórz w Mapach Google</a>
+        </div>
+      </div>
+      <iframe title="Mapa dojazdu, gabinet Elżbiety Moczydłowskiej w Olsztynie" data-embed="map" data-src="https://maps.google.com/maps?q=53.7796968,20.4857146&amp;z=16&amp;hl=pl&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen hidden></iframe>
       <a class="btn btn-light" href="https://maps.app.goo.gl/sUS213Xj2u6TGxyx6" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Otwórz w Mapach Google</a>
     </div>
     <p class="footer-note">&copy; Elżbieta Moczydłowska &middot; Psycholog Olsztyn</p>
+    <p class="footer-legal"><a href="/polityka-prywatnosci/">Polityka prywatności</a><button type="button" class="link-btn" data-consent-open>Ustawienia cookies</button></p>
   </div>
 </footer>
 
