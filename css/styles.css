@@ -407,3 +407,32 @@ h1, h2, h3 {
 .link-btn { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
 .footer-legal a:hover, .link-btn:hover { color: #fff; }
 .link-btn:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+
+/* Phone link outside call hours (see js/call-hours.js): dimmed, still clickable */
+a.call-off { opacity: 0.45; filter: grayscale(1); position: relative; }
+a.call-off:hover, a.call-off:focus-visible { opacity: 0.7; }
+a.call-off[data-call-note]:hover::after,
+a.call-off[data-call-note]:focus-visible::after {
+    content: attr(data-call-note);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: min(260px, 80vw);
+    padding: 0.5rem 0.7rem;
+    background: #2b2b2b;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    z-index: 20;
+}
+/* .split clips overflow, so the hero button relies on the native title tooltip */
+.split a.call-off::after { display: none; }
