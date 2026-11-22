@@ -1,8 +1,9 @@
 /*
  * Phone availability hint (no dependencies).
  *
- * Outside the call windows the "Zadzwoń" / "Telefon" links are greyed out and
- * get a tooltip saying nobody may pick up. They stay clickable (tel: still works).
+ * Outside the call windows the hero "Zadzwoń" button is greyed out and gets a
+ * tooltip saying nobody may pick up. It stays clickable (tel: still works).
+ * The contact section number is deliberately static.
  * Windows are in Europe/Warsaw time, every day: 10:00-15:00 and 20:00-22:00.
  */
 (function () {
@@ -33,16 +34,14 @@
     var min = warsawMinutes();
     if (min === null) return; // unknown time: leave buttons normal
     var off = !inWindow(min);
-    var links = document.querySelectorAll('a[href^="tel:"]');
+    var links = document.querySelectorAll('a.split-call');
     for (var i = 0; i < links.length; i++) {
       var a = links[i];
       a.classList.toggle('call-off', off);
       if (off) {
         a.setAttribute('title', NOTE);
-        a.setAttribute('data-call-note', NOTE);
       } else {
         a.removeAttribute('title');
-        a.removeAttribute('data-call-note');
       }
     }
   }
