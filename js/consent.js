@@ -13,6 +13,8 @@
  *
  * Google embeds (calendar, map) stay as placeholders until consent is granted,
  * or until the visitor clicks the per-embed "Załaduj ..." button.
+ * The same consent also allows recording the Google Ads click id (gclid) with
+ * contact-button clicks, see "ad measurement" below.
  */
 (function () {
   'use strict';
@@ -67,44 +69,29 @@
     EMBEDS.forEach(state === 'granted' ? loadEmbed : unloadEmbed);
   }
 
-  /* ---------- marketing tags (future) ----------
-   * Load ONLY after consent is granted. Do not add remarketing / ad
-   * personalization: Google Ads restricts it for sensitive (health) topics.
-   * Conversion measurement only.
-   *
-   * 1) Consent Mode v2 defaults must be set BEFORE the gtag.js script loads
-   *    (do it at the top of this file, or in an inline script in <head>):
-   *
-   *      window.dataLayer = window.dataLayer || [];
-   *      function gtag(){ dataLayer.push(arguments); }
-   *      gtag('consent', 'default', {
-   *        ad_storage: 'denied', ad_user_data: 'denied',
-   *        ad_personalization: 'denied', analytics_storage: 'denied'
-   *      });
-   *
-   * 2) On accept, update and load the tag once:
-   *
-   *      gtag('consent', 'update', {
-   *        ad_storage: 'granted', ad_user_data: 'granted',
-   *        ad_personalization: 'denied',   // keep OFF (sensitive category)
-   *        analytics_storage: 'denied'     // Umami is cookieless, no need
-   *      });
-   *      var s = document.createElement('script');
-   *      s.async = true;
-   *      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX';
-   *      document.head.appendChild(s);
-   *      gtag('js', new Date());
-   *      gtag('config', 'AW-XXXXXXXXXX', { allow_ad_personalization_signals: false });
-   *
-   * 3) On withdrawal (state === 'denied'), call gtag('consent','update', {all four: 'denied'}).
-   *    Conversion event: gtag('event','conversion',{send_to:'AW-XXXXXXXXXX/LABEL'})
-   *    fired e.g. on clicks of the calendar / phone / WhatsApp links.
+  /* ---------- ad measurement (gclid) ----------
+   * No Google tag and no Google cookies. Google Ads auto-tagging appends
+   * ?gclid=<id> to the landing URL. Umami is told to drop the query string
+   * (data-exclude-search on its script tag), so the id is NOT recorded by
+   * default. Only after consent is granted do we put it on the contact
+   * buttons as Umami event data (data-umami-event-gclid), so a click on
+   * call / calendar / WhatsApp is stored together with the ad click id.
+   * It is exported from Umami and uploaded to Google Ads as offline
+   * conversions (see ads-conversions.sql on the server).
+   * Nothing is written to the visitor's device. Conversion measurement only:
+   * no remarketing, no ad personalization (sensitive health topic).
    */
-  var marketingLoaded = false;
+  function adClickId() {
+    var m = /[?&]gclid=([A-Za-z0-9_-]{20,200})(?:&|#|$)/.exec(window.location.search);
+    return m ? m[1] : null;
+  }
+
   function syncMarketing() {
-    if (state === 'granted' && !marketingLoaded) {
-      marketingLoaded = true;
-      // TODO: Google Ads tag goes here (see comment above).
+    var id = state === 'granted' ? adClickId() : null;
+    var els = document.querySelectorAll('[data-umami-event]');
+    for (var i = 0; i < els.length; i++) {
+      if (id) els[i].setAttribute('data-umami-event-gclid', id);
+      else els[i].removeAttribute('data-umami-event-gclid');
     }
   }
 
@@ -119,7 +106,7 @@
     bar.setAttribute('aria-label', 'Zgoda na cookies');
     bar.hidden = true;
     bar.innerHTML =
-      '<p>Kalendarz i mapa Google mogą zapisywać cookies. <a href="' + POLICY + '">Polityka prywatności</a></p>' +
+      '<p>Kalendarz i mapa Google mogą zapisywać cookies, a do mierzenia skuteczności reklam Google Ads zapisuję identyfikator kliknięcia z reklamy. <a href="' + POLICY + '">Polityka prywatności</a></p>' +
       '<div class="consent-actions">' +
       '<button type="button" class="consent-btn" data-c="granted">Akceptuję</button>' +
       '<button type="button" class="consent-btn" data-c="denied">Odrzucam</button>' +
